@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-0.0.1
+      author: stu team
+      changes:
+        - createTable:
+            tableName: students
+            columns:
+              - column:
+                  name: stu_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: stu_name
+                  type: varchar(255)
+              - column:
+                  name: marks
+                  type: varchar(1000)
+
+        - addPrimaryKey:
+            tableName: students
+            columnNames: stu_id
+            constraintName: stu_pk
+  - changeSet:
+      id: data-0.0.1
+      author: stu team
+      changes:
+        - insert:
+            tableName: students
+            columns:
+              - column:
+                  name: stu_id
+                  value: '111'
+              - column:
+                  name: stu_name
+                  value: esha
+              - column:
+                  name: marks
+                  value: '100'
