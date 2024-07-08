@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-0.0.1
+      author: student team
+      changes:
+        - createTable:
+            tableName: students
+            columns:
+              - column:
+                  name: stu_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: stu_name
+                  type: varchar(255)
+              - column:
+                  name: marks
+                  type: bigint
+              - column:
+                  name: age
+                  type: bigint
+        - addPrimaryKey:
+            tableName: students
+            columnNames: stu_id
+            constraintName: student_pk
+  - changeSet:
+      id: data-0.0.1
+      author: student team
+      changes:
+        - insert:
+            tableName: students
+            columns:
+              - column:
+                  name: stu_id
+                  value: '123'
+              - column:
+                  name: stu_name
+                  value: student 123
+              - column:
+                  name: marks
+                  value: '100'
+              - column:
+                  name: age
+                  value: '21'

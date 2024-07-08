@@ -15,4 +15,5 @@ public class Students {
     private Long stuId;
     private String stuName;
     private Long marks;
+    private Long age;
 }

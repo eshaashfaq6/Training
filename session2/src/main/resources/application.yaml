@@ -10,3 +10,7 @@ spring:
     hibernate:
       ddl-auto: none
     open-in-view: false
+
+api:
+  security:
+    ignored: /api/v1/students,/api/v1/students/**,/swagger-ui/**,/v3/api-docs,/v3/api-docs/**
