@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class UsersService implements UserDetailsService {
 
@@ -21,6 +23,7 @@ public class UsersService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Users> user = usersRepository.findByUsername(username);
         if (user.isEmpty()) {
+            log.warn("invlid user: {}", username.replace('\n', ' '));
             throw new UsernameNotFoundException("User or passowrd incorrect.");
         }
         return new org.springframework.security.core.userdetails.User(user.get().getUsername(),

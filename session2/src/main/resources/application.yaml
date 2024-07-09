@@ -4,8 +4,8 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:testdb
-    username: sa
-    password: password
+    username: test
+    password: password122
   jpa:
     hibernate:
       ddl-auto: none
@@ -13,4 +13,4 @@ spring:
 
 api:
   security:
-    ignored: /api/v1/students,/api/v1/students/**,/swagger-ui/**,/v3/api-docs,/v3/api-docs/**
+    ignored: /api/v1/students,/api/v1/newwwws,/api/v1/students/**,/swagger-ui/**,/v3/api-docs,/v3/api-docs/**

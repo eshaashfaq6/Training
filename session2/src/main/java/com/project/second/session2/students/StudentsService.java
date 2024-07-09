@@ -29,10 +29,10 @@ public class StudentsService {
     }
 
 
-    public Students create(Students student) {
-        student.setStuId(System.currentTimeMillis());
+    public Students update(Students students) {
+
         //String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return studentsRepository.save(student);
+        return studentsRepository.save(students);
     }
 
 
