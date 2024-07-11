@@ -36,10 +36,29 @@ databaseChangeLog:
                   value: '123'
               - column:
                   name: stu_name
-                  value: student 123
+                  value: esha
+              - column:
+                  name: marks
+                  value: '90'
+              - column:
+                  name: age
+                  value: '22'
+  - changeSet:
+      id: data-0.0.2
+      author: student team
+      changes:
+        - insert:
+            tableName: students
+            columns:
+              - column:
+                  name: stu_id
+                  value: '124'
+              - column:
+                  name: stu_name
+                  value: amna
               - column:
                   name: marks
                   value: '100'
               - column:
                   name: age
-                  value: '21'
+                  value: '24'

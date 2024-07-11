@@ -1,0 +1,64 @@
+#spring:
+#  boot:
+#    admin:
+#      context-path: /admins
+#      ui:
+#        title: Spring Boot Admin
+#        brand: My Admin
+#      client:
+#        url: http://localhost:8080
+#        management-url: http://localhost:8080/admins
+#        enabled: true
+#        auto-registration: true
+#        instance:
+#          name: ${spring.application.name:JSS}
+#        username: admin
+#        password: 122
+spring:
+  application:
+    name: session2
+  boot:
+    admin:
+      context-path: /admins
+      ui:
+        title: Spring Boot Admin
+        brand: My Admin
+      client:
+        url: http://localhost:8080
+        instance:
+          service-base-url: http://localhost:8080
+  profiles:
+    active:
+      - secure
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: test
+    password: password122
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+api:
+  security:
+    ignored: /api/v1/students,/api/v1/students/**,/swagger-ui/**,/v3/api-docs,/v3/api-docs/**
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  file:
+    name: target/student.log
+
+
+
+

@@ -18,7 +18,7 @@ public class NewsApiClient {
     public NewsApiClient(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
-    @Scheduled(fixedRate = 5000)
+
     public List<News> findNews() {
         String result = restTemplate
                 .getForEntity("https://newsapi.org/v2/top-headlines/sources?apiKey=ceeb61cc970f4a08bc6a85110fdd2ced&category=technology", String.class).getBody();

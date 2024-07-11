@@ -29,7 +29,7 @@ public class StudentsService {
     }
 
 
-    public Students update(Students students) {
+    public Students create(Students students) {
 
         //String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return studentsRepository.save(students);
@@ -38,6 +38,17 @@ public class StudentsService {
 
     public void delete(Long id) {
         studentsRepository.deleteById(id);
+    }
+
+    public Optional<Students> update(Long stuId,Students student) {
+        Optional<Students> existing = studentsRepository.findById(stuId);
+        if (existing.isPresent()) {
+            existing.get().setStuName(student.getStuName());
+            existing.get().setAge(student.getAge());
+            existing.get().setMarks(student.getMarks());
+            existing = Optional.of(studentsRepository.save(existing.get()));
+        }
+        return existing;
     }
 
 
